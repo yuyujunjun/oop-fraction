@@ -20,7 +20,7 @@ public:
     fraction(int d,int n);//分别输入分子分母构造
     fraction(int n);//一个参数的情况，将整数变为构造函数
     fraction();//缺省构造函数
-    const void print()const;//print fraction
+    //const void print()const;//print fraction
     const friend fraction operator+(fraction const&a,fraction const&b);//fraction c=a+b
     const friend fraction operator-(fraction const&a,fraction const&b);//c=a-b
     friend const fraction operator*(fraction const&a,fraction const&b);//c=a*b
@@ -33,7 +33,7 @@ public:
     friend bool operator>(fraction const&a,fraction const&b);//if(a>b)
     friend bool operator>=(fraction const&a,fraction const&b);//if(a>=b)
     friend bool operator<=(fraction const&a,fraction const&b);//if(a<=b)
-    istream& operator>>(istream& in,fraction& com);
-    ostream& operator<<();
+    friend istream& operator>>(istream& in,fraction& com);
+    friend ostream& operator<<(ostream& os,const fraction& com);
 
 };
