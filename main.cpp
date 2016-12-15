@@ -34,11 +34,11 @@ ostream& operator<<(ostream& os,const fraction& com)
         os<<0<<endl;
     return os;
 }
- const fraction fraction:: operator-()const{
+fraction fraction:: operator-()const{
     fraction temp(-denominator,numberator);
      return temp;
 }
-const fraction operator+(fraction const&a,fraction const&b)
+fraction operator+(fraction const&a,fraction const&b)
 {
     fraction temp;
     temp.numberator=a.numberator*b.numberator;
@@ -46,7 +46,7 @@ const fraction operator+(fraction const&a,fraction const&b)
     temp.reduction();
     return temp;
 }
-const fraction operator-(fraction const&a,fraction const&b)
+fraction operator-(fraction const&a,fraction const&b)
 {
     return a+(-b);
 
@@ -80,7 +80,7 @@ void fraction::reduction()//使用辗转相除法
         }
     }
 }
-const fraction fraction::reciprocal() const {
+fraction fraction::reciprocal() const {
     fraction temp(numberator,denominator);
     return temp;
 }
@@ -93,11 +93,11 @@ bool operator!=(fraction const &a,fraction const &b)
 {
     return !(a==b);
 }
-const fraction operator*(fraction const &a, fraction const &b) {
+fraction operator*(fraction const &a, fraction const &b) {
     fraction temp(a.denominator*b.denominator,a.numberator*b.numberator);
     return temp;
 }
-const fraction operator/(fraction const &a, fraction const &b) {
+fraction operator/(fraction const &a, fraction const &b) {
         fraction c=b.reciprocal();
         return a*c;
 }
@@ -130,15 +130,18 @@ int main() {//get some exam
     cout<<fraction(2);
     cout<<fraction(-2,-4);
     cout<<fraction(0,1);
-    //fraction(2,0).print();
-    fraction f1;
+    //cout<<fraction(2,0);
+    fraction f1;//定义两个对象和一个整数
     fraction f2;
-    cin>>f1>>f2;
-    cout<<"the first fraction f1:"<<f1<<endl;
+    int integer;
+    cin>>f1>>f2;//输入两个对象，构造它们
+    cin>>integer;//输入整数
+    cout<<"the first fraction f1:"<<f1<<endl;//输出两个对象
     cout<<"the second fraction f2:"<<f2<<endl;
-    cout<<"f1+f2="<<f1+f2<<endl;
-    cout<<"f1*f2="<<f1*f2<<endl;
-    cout<<"f1/f2="<<f1/f2<<endl;
+    //对两个对象和整数进行四则运算
+    cout<<"integer+f1+f2="<<integer+f1+f2<<endl;
+    cout<<"f1*integer*f2="<<f1*integer*f2<<endl;
+    cout<<"f1/f2/integer="<<f1/f2/integer<<endl;
     cout<<"-f2="<<-f2<<endl;
     cout<<"the reciprocal f2="<<f2.reciprocal();
     cout<<"f1<f2:"<<(f1<f2)<<endl;
